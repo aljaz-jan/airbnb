@@ -1,0 +1,15 @@
+kumuluzee:
+  name: realEstate
+  env:
+    name: dev
+  version: 1.0.0
+  server:
+    base-url: http://localhost:8080
+    http:
+      port: 8080
+  datasources:
+      - jndi-name: jdbc/realEstateDS
+        connection-url: jdbc:postgresql://localhost:5432/realEstate
+        username: postgres
+        password: postgres
+        max-pool-size: 20
