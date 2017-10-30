@@ -6,13 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="airbnbparent" />
         <module name="realEstate" />
+        <module name="rentRealEstate" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="airbnbparent" target="1.8" />
       <module name="realEstate" target="1.8" />
+      <module name="rentRealEstate" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

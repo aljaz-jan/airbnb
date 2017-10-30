@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$//airbnbparent.iml" filepath="$PROJECT_DIR$//airbnbparent.iml" />
       <module fileurl="file://$PROJECT_DIR$/realEstate/realEstate.iml" filepath="$PROJECT_DIR$/realEstate/realEstate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rentRealEstate/rentRealEstate.iml" filepath="$PROJECT_DIR$/rentRealEstate/rentRealEstate.iml" />
     </modules>
   </component>
 </project>

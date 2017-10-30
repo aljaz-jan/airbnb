@@ -6,7 +6,11 @@
 
     <groupId>si.faks.airbnb</groupId>
     <artifactId>airbnb-parent</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>rentRealEstate</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
