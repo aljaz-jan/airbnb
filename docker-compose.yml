@@ -5,8 +5,6 @@ services:
     environment:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=real_estate
-    ports:
-      - "5432:5432"
   real-estate-service:
     image: real_estate
     environment:
@@ -21,8 +19,6 @@ services:
     environment:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=rent_real_estate
-    ports:
-      - "5433:5432"
   rent-real-estate-service:
     image: rent-real-estate-api
     environment:
