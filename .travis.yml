@@ -6,6 +6,9 @@ services:
   - docker
 
 before_script:
-  - docker build -t rent-real-estate-api ./rentRealEstate
-  - docker build -t real_estate ./realEstate
-  - docker-compose up -d
+  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+  - docker build -t $DOCKER_USERNAME/rent-real-estate-api ./rentRealEstate
+  - docker build -t $DOCKER_USERNAME/real_estate ./realEstate
+  - docker push $DOCKER_USERNAME/real_estate
+  - docker push $DOCKER_USERNAME/rent-real-estate-api
+#  - docker-compose up -d
