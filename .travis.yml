@@ -8,4 +8,4 @@ services:
 before_script:
   - docker build -t rent-real-estate-api ./rentRealEstate
   - docker build -t real_estate ./realEstate
-  - docker-compose up
+  - docker-compose up -d
