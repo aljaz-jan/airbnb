@@ -5,9 +5,7 @@ language: java
 services:
   - docker
 
-before_install:
+before_script:
   - docker build -t rent-real-estate-api ./rentRealEstate
   - docker build -t real_estate ./rentRealEstate
-
-before_script:
   - docker-compose up
