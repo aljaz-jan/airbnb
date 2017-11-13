@@ -11,6 +11,7 @@
     <modules>
         <module>rentRealEstate</module>
         <module>realEstate</module>
+        <module>realEstateHistory</module>
     </modules>
 
     <properties>
