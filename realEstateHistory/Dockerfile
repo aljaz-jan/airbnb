@@ -4,8 +4,9 @@ RUN mkdir /app
 
 WORKDIR /app
 
-ADD ./target/realEstateHistory-1.0-SNAPSHOT.jar /app
+ARG JAR_FILE
+ADD target/${JAR_FILE} /app/realEstateHistory.jar
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "realEstateHistory-1.0-SNAPSHOT.jar"]
+CMD ["java", "-jar", "realEstateHistory.jar"]

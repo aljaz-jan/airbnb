@@ -29,7 +29,7 @@ services:
       - rent-real-estate-postgres
 
   rent-real-estate-history-service:
-    image: real-estate-history
+    image: ak2748/real-estate-history
     ports:
       - "8082:8080"
     depends_on:
