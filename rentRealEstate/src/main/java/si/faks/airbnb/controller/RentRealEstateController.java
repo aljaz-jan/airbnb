@@ -13,7 +13,7 @@ import javax.ws.rs.core.UriInfo;
 import java.util.List;
 
 @RequestScoped
-@Path("/rent-real-estate")
+@Path("/rentRealEstate")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class RentRealEstateController {
@@ -26,7 +26,6 @@ public class RentRealEstateController {
 
     @GET
     public Response getRealEstates() {
-
         List<RentRealEstate> rentRealEstates = rentRealEstateBean.getRentedRealEstates();
 
         return Response.ok(rentRealEstates).build();
@@ -35,7 +34,6 @@ public class RentRealEstateController {
     @GET
     @Path("/{rentRealEstateId}")
     public Response getRealEstate(@PathParam("rentRealEstateId") String rentRealEstateId) {
-
         RentRealEstate rentRealEstate = rentRealEstateBean.getRentedRealEstate(rentRealEstateId);
 
         if (rentRealEstate == null) {
@@ -48,7 +46,6 @@ public class RentRealEstateController {
     @GET
     @Path("/filtered")
     public Response getCustomersFiltered() {
-
         List<RentRealEstate> customers;
 
         customers = rentRealEstateBean.getRentRealEstateFilter(uriInfo);
@@ -58,7 +55,6 @@ public class RentRealEstateController {
 
     @POST
     public Response createRealEstates(RentRealEstate rentRealEstate) {
-
         if ((rentRealEstate.getRealEstateId() == null || rentRealEstate.getRealEstateId().isEmpty()) || (rentRealEstate.getUserId() == null
                 || rentRealEstate.getUserId().isEmpty())) {
             return Response.status(Response.Status.BAD_REQUEST).build();
@@ -76,7 +72,6 @@ public class RentRealEstateController {
     @PUT
     @Path("{rentRealEstateId}")
     public Response putRentRealEstate(@PathParam("rentRealEstateId") String rentRealEstateId, RentRealEstate rentRealEstate) {
-
         rentRealEstate = rentRealEstateBean.putRentRealEstate(rentRealEstateId, rentRealEstate);
 
         if (rentRealEstate == null) {
@@ -92,7 +87,6 @@ public class RentRealEstateController {
     @DELETE
     @Path("{rentRealEstateId}")
     public Response deleteRentRealEstate(@PathParam("rentRealEstateId") String customerId) {
-
         boolean deleted = rentRealEstateBean.deleteRentRealEstate(customerId);
 
         if (deleted) {
@@ -101,4 +95,5 @@ public class RentRealEstateController {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
     }
+
 }
