@@ -1,0 +1,43 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: rent-real-estate-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: rentRealEstate
+    spec:
+      containers:
+      - image: ak2748/rent-real-estate-api
+        name: rent-real-estate-service
+        env:
+          - name: KUMULUZEE_DISCOVERY_CLUSTER
+            value: airbnb
+          - name: KUMULUZEE_DISCOVERY_ETCD_HOSTS
+            value: http://etcd:2379
+          - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
+            value: jdbc:postgresql://rent-real-estate-postgres:5432/rent_real_estate
+          - name: KUMULUZEE_SERVER_BASEURL
+            value: http://rent-real-estate-service:8081
+        ports:
+        - containerPort: 8081
+          name: server
+          protocol: TCP
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: rent-real-estate
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8081
+    protocol: TCP
+    targetPort: 8081
+  selector:
+    app: rentRealEstate

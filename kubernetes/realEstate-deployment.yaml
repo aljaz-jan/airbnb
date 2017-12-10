@@ -1,0 +1,42 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: real-estate-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: realEstate
+    spec:
+      containers:
+      - image: ak2748/real_estate
+        name: real-estate-service
+        env:
+          - name: KUMULUZEE_DISCOVERY_CLUSTER
+            value: airbnb
+          - name: KUMULUZEE_DISCOVERY_ETCD_HOSTS
+            value: http://etcd:2379
+          - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
+            value: jdbc:postgresql://real-estate-postgres:5432/real_estate
+          - name: KUMULUZEE_SERVER_BASEURL
+            value: http://real-estate-service:8080
+        ports:
+        - containerPort: 8080
+          name: server
+          protocol: TCP
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: real-estate
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: realEstate

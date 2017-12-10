@@ -7,9 +7,9 @@ services:
 
 before_script:
   - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-  - docker build -t $DOCKER_USERNAME/rent-real-estate-api ./rentRealEstate
-  - docker build -t $DOCKER_USERNAME/real_estate ./realEstate
-  - docker build -t $DOCKER_USERNAME/real-estate-history ./realEstateHistory
+#  - docker build -t $DOCKER_USERNAME/rent-real-estate-api ./rentRealEstate
+#  - docker build -t $DOCKER_USERNAME/real_estate ./realEstate
+#  - docker build -t $DOCKER_USERNAME/real-estate-history ./realEstateHistory
   - docker push $DOCKER_USERNAME/real_estate
   - docker push $DOCKER_USERNAME/rent-real-estate-api
   - docker push $DOCKER_USERNAME/real-estate-history
