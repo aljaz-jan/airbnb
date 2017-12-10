@@ -1,21 +1,16 @@
 package si.faks.airbnb.controller;
 
 import si.faks.airbnb.logic.RealEstateHistoryBean;
-import si.faks.airbnb.model.RealEstate;
 import si.faks.airbnb.model.RealEstateUserHistory;
-import si.faks.airbnb.model.RentRealEstate;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RequestScoped
-@Path("/realEstate")
+@Path("/realEstateHistory")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class RealEstateHistoryController {

@@ -6,10 +6,10 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity(name = "rent_real_estate")
-@NamedQueries(value =
-    {
-        @NamedQuery(name = "RentRealEstate.getAll", query = "SELECT r FROM rent_real_estate r")
-    })
+@NamedQueries(value = {
+        @NamedQuery(name = "RentRealEstate.getAll", query = "SELECT r FROM rent_real_estate r"),
+        @NamedQuery(name = "RentRealEstate.getAllForUserId", query = "SELECT r FROM rent_real_estate r WHERE r.userId = :userId")
+})
 @UuidGenerator(name = "idGenerator")
 public class RentRealEstate {
 

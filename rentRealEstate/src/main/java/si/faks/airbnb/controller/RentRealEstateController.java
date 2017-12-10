@@ -44,6 +44,18 @@ public class RentRealEstateController {
     }
 
     @GET
+    @Path("/user/{userId}")
+    public Response getRealEstateForUserId(@PathParam("userId") String userId) {
+        List<RentRealEstate> rentRealEstateList = rentRealEstateBean.getRentedRealEstateListForUserId(userId);
+
+        if (rentRealEstateList == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
+        return Response.status(Response.Status.OK).entity(rentRealEstateList).build();
+    }
+
+    @GET
     @Path("/filtered")
     public Response getCustomersFiltered() {
         List<RentRealEstate> customers;

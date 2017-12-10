@@ -24,13 +24,13 @@ public class RealEstateBean {
     }
 
     public RealEstate getRealEstate(final String realEstateId) {
-        RealEstate customer = entityManager.find(RealEstate.class, realEstateId);
+        RealEstate realEstate = entityManager.find(RealEstate.class, realEstateId);
 
-        if (customer == null) {
+        if (realEstate == null) {
             throw new NotFoundException();
         }
 
-        return customer;
+        return realEstate;
     }
 
     public RealEstate addRealEstate(RealEstate realEstate) {
