@@ -1,0 +1,190 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Airbnb",
+		"_postman_id": "fd23deb7-f8bf-5e00-fe21-e2c399d4696d",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "realEstate",
+			"description": "",
+			"item": [
+				{
+					"name": "AddRealEstate",
+					"request": {
+						"url": "http://localhost:8080/realEstate",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\": \"1\",\n\t\"name\": \"Jan\",\n\t\"availableBeds\": 3,\n\t\"price\": \"9.0\"\n}"
+						},
+						"description": "Add new real estate"
+					},
+					"response": []
+				},
+				{
+					"name": "GetRealEstateList",
+					"request": {
+						"url": "http://localhost:8080/realEstate",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GetRealEstate",
+					"request": {
+						"url": "http://localhost:8080/realEstate/1D1C60EE-094C-4E8D-B5CA-8ADEDD61351A",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GetRealEstateFiltered",
+					"request": {
+						"url": "http://localhost:8080/realEstate/getRealEstateListFiltered",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "HealthCheck",
+					"request": {
+						"url": "http://localhost:8080/health",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Metrics",
+					"request": {
+						"url": "http://localhost:8080/metrics",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "rentRealEstate",
+			"description": "",
+			"item": [
+				{
+					"name": "AddRentRealEstate",
+					"request": {
+						"url": "http://localhost:8081/rentRealEstate",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\": \"testId\",\n\t\"realEstateId\": \"E486D3E7-0C65-4950-BF1A-5E31A916EDC0\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GetRentRealEstateListForUserId",
+					"request": {
+						"url": "http://localhost:8081/rentRealEstate/user/2",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Metrics",
+					"request": {
+						"url": "http://localhost:8081/metrics",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "HealthCheck",
+					"request": {
+						"url": "http://localhost:8081/health",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "realEstateHistory",
+			"description": "",
+			"item": [
+				{
+					"name": "GetRealEstateHistoryForUserId",
+					"request": {
+						"url": "http://localhost:8082/realEstateHistory/2",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Metrics",
+					"request": {
+						"url": "http://localhost:8082/metrics",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "HealthCheck",
+					"request": {
+						"url": "http://localhost:8082/health",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
