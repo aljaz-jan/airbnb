@@ -46,8 +46,9 @@ public class RealEstateController {
     @POST
     public Response addRealEstate(RealEstate realEstate) {
         if(StringUtils.isBlank(realEstate.getName()) ||
-                StringUtils.isBlank(realEstate.getUserId()) ||
-                realEstate.getLocation() == null){
+                StringUtils.isBlank(realEstate.getUserId()) //||
+                //realEstate.getLocation() == null
+                ){
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
         realEstate = realEstateBean.addRealEstate(realEstate);

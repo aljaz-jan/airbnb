@@ -5,7 +5,7 @@ public class RealEstate {
     private String id;
     private String userId;
     private String name;
-    private Location location;
+    //private Location location;
     private int availableBeds;
     private Double price;
 
@@ -32,14 +32,14 @@ public class RealEstate {
     public void setName(String name) {
         this.name = name;
     }
-
+/*
     public Location getLocation() {
         return location;
     }
 
     public void setLocation(Location location) {
         this.location = location;
-    }
+    }*/
 
     public int getAvailableBeds() {
         return availableBeds;

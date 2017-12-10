@@ -112,4 +112,11 @@ public class RentRealEstateBean {
         return JPAUtils.queryEntities(em, RentRealEstate.class, queryParameters);
     }
 
+    public List<RentRealEstate> getRentedRealEstateListForUserId(final String userId) {
+        final List<RentRealEstate> rentRealEstateList = em.createNamedQuery("RentRealEstate.getAllForUserId")
+                .setParameter("userId", userId)
+                .getResultList();
+        return rentRealEstateList;
+    }
+
 }

@@ -4,12 +4,17 @@ kumuluzee:
     name: dev
   version: 1.0.0
   server:
-    base-url: http://localhost:8080
+    base-url: http://localhost:8081
     http:
-      port: 8080
+      port: 8081
   datasources:
     - jndi-name: jdbc/RentRealEstateDS
-      connection-url: jdbc:postgresql://localhost:5432/rent_real_estate
+      connection-url: jdbc:postgresql://localhost:5433/rent_real_estate
       username: postgres
       password: postgres
       max-pool-size: 20
+  discovery:
+    etcd:
+      hosts: http://192.168.42.7:2379
+    ttl: 30
+    ping-interval: 5

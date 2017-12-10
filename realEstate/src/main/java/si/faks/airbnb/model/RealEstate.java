@@ -15,16 +15,16 @@ public class RealEstate {
     @GeneratedValue(generator = "idGenerator")
     private String id;
 
-    @Id
+    @Column(name = "userId")
     private String userId;
 
     @Column(name = "name")
     private String name;
 
     //@Column(name = "locationId")
-    @ManyToOne
-    @JoinColumn(name="locationId", nullable=false)
-    private Location location;
+    //@ManyToOne
+    //@JoinColumn(name="locationId", nullable=false)
+    //private Location location;
 
     @Column(name = "availableBeds")
     private int availableBeds;
@@ -55,14 +55,14 @@ public class RealEstate {
     public void setName(String name) {
         this.name = name;
     }
-
+/*
     public Location getLocation() {
         return location;
     }
 
     public void setLocation(Location location) {
         this.location = location;
-    }
+    }*/
 
     public int getAvailableBeds() {
         return availableBeds;

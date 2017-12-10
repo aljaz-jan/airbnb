@@ -1,11 +1,13 @@
 package si.faks.airbnb.logic;
 
+import com.kumuluz.ee.discovery.annotations.DiscoverService;
 import org.apache.commons.collections.CollectionUtils;
 import si.faks.airbnb.model.RealEstate;
 import si.faks.airbnb.model.RealEstateUserHistory;
 import si.faks.airbnb.model.RentRealEstate;
 
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.ProcessingException;
 import javax.ws.rs.WebApplicationException;
@@ -20,6 +22,14 @@ import java.util.stream.Collectors;
 public class RealEstateHistoryBean {
 
 	private Client httpClient;
+
+	@Inject
+	@DiscoverService(value = "realEstate")
+	private Optional<String> realEstateServiceUrl;
+
+	@Inject
+	@DiscoverService(value = "rentRealEstateService")
+	private Optional<String> rentRealEstateServiceUrl;
 
 	public RealEstateHistoryBean() {
 		httpClient = ClientBuilder.newClient();
@@ -40,11 +50,9 @@ public class RealEstateHistoryBean {
 	}
 
 	private Optional<RealEstate> getRealEstateForId(final String id) {
-		final Optional<String> baseUrl = Optional.of("172.18.0.5/realEstate");
-
-		if (baseUrl.isPresent()) {
+		if (realEstateServiceUrl.isPresent()) {
 			try {
-				RealEstate realEstate = httpClient.target(baseUrl.get() + "/" + id)
+				RealEstate realEstate = httpClient.target(realEstateServiceUrl.get() + "/realEstate/" + id)
 						.request().get(new GenericType<RealEstate>() {
 									   }
 						);
@@ -61,7 +69,6 @@ public class RealEstateHistoryBean {
 		if(CollectionUtils.isEmpty(realEstateIdsList)) {
 			return new ArrayList<>();
 		}
-		final Optional<String> baseUrl = Optional.of("");
 		final Set<String> realEstateIds = new HashSet<>(realEstateIdsList);
 
 		return realEstateIds.stream()
@@ -72,11 +79,9 @@ public class RealEstateHistoryBean {
 	}
 
 	private List<RentRealEstate> getRentRealEstateForUserId(String userId) {
-		final Optional<String> baseUrl = Optional.of("172.18.0.4/rentRealEstate");
-
-		if (baseUrl.isPresent()) {
+		if (rentRealEstateServiceUrl.isPresent()) {
 			try {
-				return httpClient.target(baseUrl.get() + "/user/" + userId)
+				return httpClient.target(rentRealEstateServiceUrl.get() + "/rentRealEstate/user/" + userId)
 						.request().get(new GenericType<List<RentRealEstate>>() {}
 						);
 			} catch (WebApplicationException | ProcessingException e) {
