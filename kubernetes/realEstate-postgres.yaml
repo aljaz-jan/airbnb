@@ -1,0 +1,37 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: real-estate-postgres
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: realEstatePostgres
+    spec:
+      containers:
+      - image: postgres:latest
+        name: real-estate-postgres
+        env:
+          - name: POSTGRES_PASSWORD
+            value: postgres
+          - name: POSTGRES_DB
+            value: real_estate
+        ports:
+        - containerPort: 5432
+          name: server
+          protocol: TCP
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: real-estate-postgres
+spec:
+  ports:
+  - port: 5432
+    protocol: TCP
+    targetPort: 5432
+  selector:
+    app: realEstatePostgres
