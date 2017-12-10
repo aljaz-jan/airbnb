@@ -18,3 +18,19 @@ kumuluzee:
       hosts: http://192.168.42.7:2379
     ttl: 30
     ping-interval: 5
+  health:
+    servlet:
+      enabled: true
+      mapping: /health
+    checks:
+      data-source-health-check:
+        jndi-name: jdbc/realEstateDS
+      http-health-check:
+        - connection-url: http://localhost:8080/realEstate
+  metrics:
+    servlet:
+      enabled: true
+      mapping: /metrics
+    web-instrumentation:
+      - name: real-estate-endpoint
+        url-pattern: /realEstate

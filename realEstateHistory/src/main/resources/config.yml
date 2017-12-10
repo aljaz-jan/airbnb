@@ -12,3 +12,14 @@ kumuluzee:
       hosts: http://192.168.42.7:2379
     ttl: 30
     ping-interval: 5
+  health:
+    servlet:
+      enabled: true
+      mapping: /health
+  metrics:
+    servlet:
+      enabled: true
+      mapping: /metrics
+    web-instrumentation:
+      - name: real-estate-history-endpoint
+        url-pattern: /realEstateHistory
