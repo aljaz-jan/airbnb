@@ -32,17 +32,17 @@ public class DependenciesAvailableHealthCheck implements HealthCheck {
 	}
 
 	private boolean isRealEstateServiceAvailable() {
-		return isServiceAvailable(realEstateServiceUrl, "/realEstate");
+		return isServiceAvailable(realEstateServiceUrl);
 	}
 
 	private boolean isRentRealEstateServiceAvailable() {
-		return isServiceAvailable(rentRealEstateServiceUrl, "/rentRealEstate");
+		return isServiceAvailable(rentRealEstateServiceUrl);
 	}
 
-	private boolean isServiceAvailable(final Optional<String> serviceUrl, final String path) {
+	private boolean isServiceAvailable(final Optional<String> serviceUrl) {
 		if(serviceUrl.isPresent()) {
 			try {
-				HttpURLConnection connection = (HttpURLConnection) new URL(serviceUrl.get() + path).openConnection();
+				HttpURLConnection connection = (HttpURLConnection) new URL(serviceUrl.get() + "/health").openConnection();
 				connection.setRequestMethod("GET");
 
 				if (connection.getResponseCode() == 200) {

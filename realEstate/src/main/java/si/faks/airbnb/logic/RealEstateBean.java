@@ -1,5 +1,6 @@
 package si.faks.airbnb.logic;
 
+import com.kumuluz.ee.logs.cdi.Log;
 import com.kumuluz.ee.rest.beans.QueryParameters;
 import com.kumuluz.ee.rest.utils.JPAUtils;
 import si.faks.airbnb.model.RealEstate;
