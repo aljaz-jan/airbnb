@@ -1,5 +1,6 @@
 package si.faks.airbnb.controller;
 
+import com.kumuluz.ee.logs.cdi.Log;
 import si.faks.airbnb.logic.RealEstateHistoryBean;
 import si.faks.airbnb.model.RealEstateUserHistory;
 
@@ -9,6 +10,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+@Log
 @RequestScoped
 @Path("/realEstateHistory")
 @Produces(MediaType.APPLICATION_JSON)

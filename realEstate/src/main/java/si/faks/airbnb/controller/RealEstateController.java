@@ -1,5 +1,9 @@
 package si.faks.airbnb.controller;
 
+import com.kumuluz.ee.logs.LogManager;
+import com.kumuluz.ee.logs.Logger;
+import com.kumuluz.ee.logs.cdi.Log;
+import com.kumuluz.ee.logs.cdi.LogParams;
 import org.apache.commons.lang3.StringUtils;
 import si.faks.airbnb.logic.RealEstateBean;
 import si.faks.airbnb.model.RealEstate;
@@ -13,6 +17,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.util.List;
 
+@Log
 @RequestScoped
 @Path("/realEstate")
 @Produces(MediaType.APPLICATION_JSON)

@@ -34,3 +34,5 @@ kumuluzee:
     web-instrumentation:
       - name: real-estate-endpoint
         url-pattern: /realEstate
+  logs:
+    config-file-location: realEstate/src/main/resources/log4j2.xml
