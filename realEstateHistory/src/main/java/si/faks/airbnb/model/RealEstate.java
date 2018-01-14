@@ -9,14 +9,6 @@ public class RealEstate {
     private int availableBeds;
     private Double price;
 
-    public RealEstate(String id, String userId, String name, int availableBeds, Double price) {
-        this.id = id;
-        this.userId = userId;
-        this.name = name;
-        this.availableBeds = availableBeds;
-        this.price = price;
-    }
-
     public String getId() {
         return id;
     }

@@ -70,8 +70,21 @@ public class RealEstateHistoryBean {
 	public RealEstateUserHistory getRentedRealEstateListFallback(final String userId){
 		final List<RentRealEstate> rentRealEstateList = new ArrayList<>();
 		final Map<String, RealEstate> realEstateMap = new HashMap<>();
-		rentRealEstateList.add(new RentRealEstate("NA", "NA", "NA"));
-		realEstateMap.put("NA", new RealEstate("NA", "NA", "NA", 0, 0.0d));
+		RentRealEstate rre = new RentRealEstate();
+		rre.setId("NA");
+		rre.setRealEstateId("NA");
+		rre.setUserId("NA");
+
+
+		RealEstate re = new RealEstate();
+		re.setId("NA");
+		re.setName("NA");
+		re.setAvailableBeds(0);
+		re.setPrice(0.0d);
+		re.setUserId("NA");
+
+		rentRealEstateList.add(rre);
+		realEstateMap.put("NA", re);
 		return new RealEstateUserHistory(rentRealEstateList, realEstateMap);
 	}
 
