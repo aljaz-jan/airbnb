@@ -17,6 +17,8 @@ spec:
             value: airbnb
           - name: KUMULUZEE_DISCOVERY_ETCD_HOSTS
             value: http://etcd:2379
+          - name: KUMULUZEE_CONFIG_ETCD_HOSTS
+            value: http://etcd:2379
           - name: KUMULUZEE_SERVER_BASEURL
             value: http://real-estate-history-service:8082
         ports:
