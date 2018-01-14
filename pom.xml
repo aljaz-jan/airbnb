@@ -14,6 +14,7 @@
         <module>realEstateHistory</module>
         <module>realEstateUsers</module>
         <module>realEstateComment</module>
+        <module>realEstateRecommendation</module>
     </modules>
 
     <properties>
