@@ -1,5 +1,7 @@
 package si.faks.airbnb.controller;
 
+import com.kumuluz.ee.configuration.cdi.ConfigBundle;
+import com.kumuluz.ee.configuration.cdi.ConfigValue;
 import com.kumuluz.ee.logs.LogManager;
 import com.kumuluz.ee.logs.Logger;
 import com.kumuluz.ee.logs.cdi.Log;
@@ -22,6 +24,7 @@ import java.util.List;
 @Path("/realEstate")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@ConfigBundle("real-estate-config")
 public class RealEstateController {
 
     @Inject
@@ -29,6 +32,9 @@ public class RealEstateController {
 
     @Context
     protected UriInfo uriInfo;
+
+    @ConfigValue(value = "dynamic", watch = true)
+    private String dynamic;
 
     @GET
     public Response getRealEstateList() {
@@ -73,6 +79,12 @@ public class RealEstateController {
         realEstateList = realEstateBean.getRealEstateListFiltered(uriInfo);
 
         return Response.status(Response.Status.OK).entity(realEstateList).build();
+    }
+
+    @GET
+    @Path("/config")
+    public Response getConfig() {
+        return Response.status(Response.Status.OK).entity(dynamic).build();
     }
 
 }
