@@ -8,6 +8,7 @@ kubectl delete -f realEstateComment-deployment.yaml
 kubectl delete -f realEstateDistance-deployment.yaml
 kubectl delete -f realEstateUsers-deployment.yaml
 kubectl delete -f realEstateRecommendation-deployment.yaml
+kubectl delete -f realEstateAds-deployment.yaml
 
 kubectl create -f etcd.yaml
 kubectl create -f realEstate-deployment.yaml
@@ -19,6 +20,7 @@ kubectl create -f realEstateComment-deployment.yaml
 kubectl create -f realEstateDistance-deployment.yaml
 kubectl create -f realEstateUsers-deployment.yaml
 kubectl create -f realEstateRecommendation-deployment.yaml
+kubectl create -f realEstateAds-deployment.yaml
 
 curl http://35.198.130.166:2379/v2/keys/environments/dev/services/realEstate/1.0.0/config/real-estate-config/dynamic -XPUT -d value="Hello world"
 
