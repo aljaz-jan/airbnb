@@ -43,3 +43,10 @@ services:
     depends_on:
       - real-estate-service
       - rent-real-estate-service
+
+  real-estate-users-service:
+      image: ak2748/real-estate-users
+      environment:
+        - KUMULUZEE_SERVER_BASEURL=http://real-estate-users-service:8083
+      ports:
+        - "8083:8083"
