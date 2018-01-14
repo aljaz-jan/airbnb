@@ -34,15 +34,15 @@ services:
     depends_on:
       - rent-real-estate-postgres
 
-  rent-real-estate-history-service:
-    image: ak2748/real-estate-history
-    environment:
-      - KUMULUZEE_SERVER_BASEURL=http://rent-real-estate-history-service:8082
-    ports:
-      - "8082:8082"
-    depends_on:
-      - real-estate-service
-      - rent-real-estate-service
+#  rent-real-estate-history-service:
+#    image: ak2748/real-estate-history
+#    environment:
+#      - KUMULUZEE_SERVER_BASEURL=http://rent-real-estate-history-service:8082
+#    ports:
+#      - "8082:8082"
+#    depends_on:
+#      - real-estate-service
+#      - rent-real-estate-service
 
   real-estate-users-service:
     image: ak2748/real-estate-users

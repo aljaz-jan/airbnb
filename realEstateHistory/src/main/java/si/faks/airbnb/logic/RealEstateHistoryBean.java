@@ -1,7 +1,11 @@
 package si.faks.airbnb.logic;
 
 import com.kumuluz.ee.discovery.annotations.DiscoverService;
+import com.kumuluz.ee.fault.tolerance.annotations.CommandKey;
+import com.kumuluz.ee.fault.tolerance.annotations.GroupKey;
 import org.apache.commons.collections.CollectionUtils;
+import org.eclipse.microprofile.faulttolerance.*;
+import si.faks.airbnb.config.ConfigProperties;
 import si.faks.airbnb.model.RealEstate;
 import si.faks.airbnb.model.RealEstateUserHistory;
 import si.faks.airbnb.model.RentRealEstate;
@@ -19,9 +23,14 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @RequestScoped
+@Bulkhead
+@GroupKey("real-estate-history")
 public class RealEstateHistoryBean {
 
 	private Client httpClient;
+
+	@Inject
+	private ConfigProperties properties;
 
 	@Inject
 	@DiscoverService(value = "realEstate")
@@ -35,7 +44,16 @@ public class RealEstateHistoryBean {
 		httpClient = ClientBuilder.newClient();
 	}
 
+	@CircuitBreaker
+	@Fallback(fallbackMethod = "getRentedRealEstateListFallback")
+	@CommandKey("http-get-real-estate")
+	@Timeout
+	@Asynchronous
 	public RealEstateUserHistory getRentedRealEstateList(final String userId) {
+		if (properties.getIsDown() != null && properties.getIsDown()) {
+			throw new InternalServerErrorException("Known error occurred");
+		}
+
 		final List<RentRealEstate> rentRealEstateList = getRentRealEstateForUserId(userId);
 		final Map<String, RealEstate> realEstateMap = getRealEstateMapForIds(
 				rentRealEstateList.stream()
@@ -46,6 +64,14 @@ public class RealEstateHistoryBean {
 		if(CollectionUtils.isEmpty(rentRealEstateList)){
 			return null;
 		}
+		return new RealEstateUserHistory(rentRealEstateList, realEstateMap);
+	}
+
+	public RealEstateUserHistory getRentedRealEstateListFallback(final String userId){
+		final List<RentRealEstate> rentRealEstateList = new ArrayList<>();
+		final Map<String, RealEstate> realEstateMap = new HashMap<>();
+		rentRealEstateList.add(new RentRealEstate("NA", "NA", "NA"));
+		realEstateMap.put("NA", new RealEstate("NA", "NA", "NA", 0, 0.0d));
 		return new RealEstateUserHistory(rentRealEstateList, realEstateMap);
 	}
 

@@ -1,0 +1,25 @@
+kubectl delete -f etcd.yaml
+kubectl delete -f realEstate-deployment.yaml
+kubectl delete -f realEstate-postgres.yaml
+kubectl delete -f realEstateHistory-deployment.yaml
+kubectl delete -f rentRealEstate-deployment.yaml
+kubectl delete -f rentRealEstate-postgres.yaml
+
+kubectl create -f etcd.yaml
+kubectl create -f realEstate-deployment.yaml
+kubectl create -f realEstate-postgres.yaml
+kubectl create -f realEstateHistory-deployment.yaml
+kubectl create -f rentRealEstate-deployment.yaml
+kubectl create -f rentRealEstate-postgres.yaml
+
+curl http://35.198.130.166:2379/v2/keys/environments/dev/services/realEstate/1.0.0/config/real-estate-config/dynamic -XPUT -d value="Hello world"
+
+curl http://35.198.130.166:2379/v2/keys/environments/dev/services/realEstateHistoryService/1.0.0/config/real-estate-history-config/isDown -XPUT -d value="false"
+
+
+
+curl http://127.0.0.1:2379/v2/keys/message -XDELETE
+
+curl http://127.0.0.1:2379/v2/keys/message -XPUT -d value="Hello etcd"
+
+curl http://127.0.0.1:2379/v2/keys/message

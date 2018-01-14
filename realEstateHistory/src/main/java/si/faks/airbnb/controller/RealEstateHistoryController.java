@@ -1,6 +1,7 @@
 package si.faks.airbnb.controller;
 
 import com.kumuluz.ee.logs.cdi.Log;
+import si.faks.airbnb.config.ConfigProperties;
 import si.faks.airbnb.logic.RealEstateHistoryBean;
 import si.faks.airbnb.model.RealEstateUserHistory;
 
@@ -20,6 +21,9 @@ public class RealEstateHistoryController {
     @Inject
     private RealEstateHistoryBean realEstateHistoryBean;
 
+    @Inject
+    private ConfigProperties properties;
+
     @GET
     @Path("/{userId}")
     public Response getRealEstate(@PathParam("userId") String userId) {
@@ -30,6 +34,12 @@ public class RealEstateHistoryController {
         }
 
         return Response.status(Response.Status.OK).entity(realEstateUserHistory).build();
+    }
+
+    @GET
+    @Path("/config")
+    public Response getConfig() {
+        return Response.status(Response.Status.OK).entity(properties.getIsDown()).build();
     }
 
 }

@@ -6,6 +6,12 @@ public class RentRealEstate {
     private String userId;
     private String realEstateId;
 
+    public RentRealEstate(String id, String userId, String realEstateId) {
+        this.id = id;
+        this.userId = userId;
+        this.realEstateId = realEstateId;
+    }
+
     public String getId() {
         return id;
     }

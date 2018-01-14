@@ -7,9 +7,14 @@ kumuluzee:
     base-url: http://localhost:8082
     http:
       port: 8082
+  config:
+    start-retry-delay-ms: 500
+    max-retry-delay-ms: 900000
+    etcd:
+      hosts: http://35.198.130.166:2379
   discovery:
     etcd:
-      hosts: http://192.168.42.7:2379
+      hosts: http://35.198.130.166:2379
     ttl: 30
     ping-interval: 5
   health:
@@ -25,3 +30,25 @@ kumuluzee:
         url-pattern: /realEstateHistory
   logs:
     config-file-location: realEstate/src/main/resources/log4j2.xml
+
+real-estate-history-config:
+  is-down: false
+
+fault-tolerance:
+  config:
+    watch-enabled: true
+    watch-properties: timeout.value,circuit-breaker.failure-ratio,bulkhead.value
+  real-estate-history:
+    bulkhead:
+      value: 5
+    http-get-real-estate:
+      timeout:
+        value: 10000ms
+      circuit-breaker:
+        request-threshold: 10
+        failure-ratio: 0.3
+        delay: 10000ms
+        metrics:
+          rolling-window:
+            size: 5s
+            buckets: 5
