@@ -12,6 +12,7 @@
         <module>rentRealEstate</module>
         <module>realEstate</module>
         <module>realEstateHistory</module>
+        <module>realEstateUsers</module>
     </modules>
 
     <properties>
