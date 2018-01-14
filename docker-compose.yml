@@ -45,8 +45,15 @@ services:
       - rent-real-estate-service
 
   real-estate-users-service:
-      image: ak2748/real-estate-users
-      environment:
-        - KUMULUZEE_SERVER_BASEURL=http://real-estate-users-service:8083
-      ports:
-        - "8083:8083"
+    image: ak2748/real-estate-users
+    environment:
+      - KUMULUZEE_SERVER_BASEURL=http://real-estate-users-service:8083
+    ports:
+      - "8083:8083"
+
+  real-estate-comment-service:
+    image: ak2748/real-estate-comment
+    environment:
+      - KUMULUZEE_SERVER_BASEURL=http://real-estate-comment-service:8084
+    ports:
+      - "8084:8084"

@@ -14,4 +14,5 @@ before_script:
   - docker push $DOCKER_USERNAME/rent-real-estate-api
   - docker push $DOCKER_USERNAME/real-estate-history
   - docker push $DOCKER_USERNAME/real-estate-users
+  - docker push $DOCKER_USERNAME/real-estate-comment
 #  - docker-compose up -d
