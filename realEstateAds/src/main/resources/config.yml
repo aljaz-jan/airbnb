@@ -1,0 +1,30 @@
+kumuluzee:
+  name: realEstateAds
+  env:
+    name: dev
+  version: 1.0.0
+  server:
+    base-url: http://localhost:8087
+    http:
+      port: 8087
+  discovery:
+    etcd:
+      hosts: http://192.168.42.7:2379
+    ttl: 30
+    ping-interval: 5
+  health:
+    servlet:
+      enabled: true
+      mapping: /health
+    checks:
+      http-health-check:
+        - connection-url: http://localhost:8087/realEstateAds
+  metrics:
+    servlet:
+      enabled: true
+      mapping: /metrics
+    web-instrumentation:
+      - name: real-estate-ads-endpoint
+        url-pattern: /realEstateAds
+  logs:
+    config-file-location: realEstateAds/src/main/resources/log4j2.xml

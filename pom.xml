@@ -16,6 +16,7 @@
         <module>realEstateComment</module>
         <module>realEstateRecommendation</module>
         <module>realEstateDistance</module>
+        <module>realEstateAds</module>
     </modules>
 
     <properties>

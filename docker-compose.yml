@@ -66,8 +66,15 @@ services:
       - "8085:8085"
 
   real-estate-distance-service:
-      image: ak2748/real-estate-distance
-      environment:
-        - KUMULUZEE_SERVER_BASEURL=http://real-estate-distance-service:8086
-      ports:
-        - "8086:8086"
+    image: ak2748/real-estate-distance
+    environment:
+      - KUMULUZEE_SERVER_BASEURL=http://real-estate-distance-service:8086
+    ports:
+      - "8086:8086"
+
+  real-estate-ads-service:
+    image: ak2748/real-estate-ads
+    environment:
+      - KUMULUZEE_SERVER_BASEURL=http://real-estate-ads-service:8087
+    ports:
+      - "8087:8087"
