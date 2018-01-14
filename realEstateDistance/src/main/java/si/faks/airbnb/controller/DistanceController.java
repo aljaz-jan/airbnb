@@ -39,7 +39,6 @@ public class DistanceController {
 	@GET
 	@Path("/{fromLocation}/{realEstateId}")
 	public RealEstateDistance getDistanceToRealEstate(@PathParam("fromLocation") String fromLocation, @PathParam("realEstateId") String realEstateId) {
-		System.out.println("|" + fromLocation + "|" + realEstateId + "|");
 		return realEstateDistanceList.stream()
 				.filter(distance -> distance.getFromLocation().equals(fromLocation) && distance.getRealEstateId().equals(realEstateId))
 				.findFirst()
