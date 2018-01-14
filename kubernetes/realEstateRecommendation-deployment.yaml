@@ -18,7 +18,7 @@ spec:
           - name: KUMULUZEE_DISCOVERY_ETCD_HOSTS
             value: http://etcd:2379
           - name: KUMULUZEE_SERVER_BASEURL
-            value: http://real-estate-recommendation-service:8081
+            value: http://real-estate-recommendation-service:8085
         ports:
         - containerPort: 8085
           name: server
