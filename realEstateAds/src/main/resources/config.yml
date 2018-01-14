@@ -6,7 +6,7 @@ kumuluzee:
   server:
     base-url: http://localhost:8087
     http:
-      port: 8084
+      port: 8087
   discovery:
     etcd:
       hosts: http://192.168.42.7:2379
