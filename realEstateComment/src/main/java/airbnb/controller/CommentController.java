@@ -33,10 +33,18 @@ public class CommentController {
 	}
 
 	@GET
-	@Path("/{realEstateId}")
+	@Path("/realEstate/{realEstateId}")
 	public List<Comment> getCommentsForRealEstateId(@PathParam("realEstateId") String realEstateId) {
 		return commentList.stream()
 				.filter(comment -> comment.getRealEstateId().equals(realEstateId))
+				.collect(Collectors.toList());
+	}
+
+	@GET
+	@Path("/user/{userId}")
+	public List<Comment> getCommentsForUserId(@PathParam("userId") String userId) {
+		return commentList.stream()
+				.filter(comment -> comment.getUserId().equals(userId))
 				.collect(Collectors.toList());
 	}
 
