@@ -13,6 +13,7 @@
         <module>realEstate</module>
         <module>realEstateHistory</module>
         <module>realEstateUsers</module>
+        <module>realEstateComment</module>
     </modules>
 
     <properties>
