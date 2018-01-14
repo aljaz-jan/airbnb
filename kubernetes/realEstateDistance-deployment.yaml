@@ -20,13 +20,13 @@ spec:
           - name: KUMULUZEE_SERVER_BASEURL
             value: http://real-estate-distance-service:8081
         ports:
-        - containerPort: 8084
+        - containerPort: 8086
           name: server
           protocol: TCP
         livenessProbe:
           httpGet:
             path: /health
-            port: 8084
+            port: 8086
           initialDelaySeconds: 10
           periodSeconds: 10
           timeoutSeconds: 5
@@ -40,8 +40,8 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  - port: 8084
+  - port: 8086
     protocol: TCP
-    targetPort: 8084
+    targetPort: 8086
   selector:
     app: realEstateDistance
