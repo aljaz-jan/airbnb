@@ -2,7 +2,7 @@
     <persistence-unit name="rent-real-estate-jpa" transaction-type="RESOURCE_LOCAL">
         <non-jta-data-source>jdbc/RentRealEstateDS</non-jta-data-source>
 
-        <class>si.faks.si.faks.airbnb.model.RentRealEstate</class>
+        <class>si.faks.airbnb.model.RentRealEstate</class>
 
         <properties>
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
