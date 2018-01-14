@@ -1,6 +1,7 @@
-package airbnb;
+package si.faks.airbnb;
 
 import com.kumuluz.ee.discovery.annotations.RegisterService;
+
 import javax.ws.rs.ApplicationPath;
 
 @RegisterService

@@ -1,4 +1,4 @@
-package airbnb.model;
+package si.faks.airbnb.model;
 
 import java.util.Date;
 

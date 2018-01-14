@@ -15,4 +15,6 @@ before_script:
   - docker push $DOCKER_USERNAME/real-estate-history
   - docker push $DOCKER_USERNAME/real-estate-users
   - docker push $DOCKER_USERNAME/real-estate-comment
+  - docker push $DOCKER_USERNAME/real-estate-recommendation
+  - docker push $DOCKER_USERNAME/real-estate-distance
 #  - docker-compose up -d

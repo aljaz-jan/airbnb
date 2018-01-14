@@ -57,3 +57,17 @@ services:
       - KUMULUZEE_SERVER_BASEURL=http://real-estate-comment-service:8084
     ports:
       - "8084:8084"
+
+  real-estate-recommendation-service:
+    image: ak2748/real-estate-recommendation
+    environment:
+      - KUMULUZEE_SERVER_BASEURL=http://real-estate-recommendation-service:8085
+    ports:
+      - "8085:8085"
+
+  real-estate-distance-service:
+      image: ak2748/real-estate-distance
+      environment:
+        - KUMULUZEE_SERVER_BASEURL=http://real-estate-distance-service:8086
+      ports:
+        - "8086:8086"
