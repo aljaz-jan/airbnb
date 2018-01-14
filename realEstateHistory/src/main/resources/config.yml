@@ -11,10 +11,10 @@ kumuluzee:
     start-retry-delay-ms: 500
     max-retry-delay-ms: 900000
     etcd:
-      hosts: http://35.198.130.166:2379
+      hosts: http://192.168.1.18:2379
   discovery:
     etcd:
-      hosts: http://35.198.130.166:2379
+      hosts: http://192.168.1.18:2379
     ttl: 30
     ping-interval: 5
   health:
