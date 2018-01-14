@@ -10,7 +10,7 @@ import java.util.List;
 
 @Log
 @RequestScoped
-@Path("/realEstateUsers")
+@Path("/realEstateRecommendation")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class RecommendationController {

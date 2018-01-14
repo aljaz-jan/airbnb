@@ -14,7 +14,7 @@ spec:
         name: real-estate-service
         env:
           - name: KUMULUZEE_DISCOVERY_CLUSTER
-            value: airbnb
+            value: si.faks.airbnb
           - name: KUMULUZEE_CONFIG_ETCD_HOSTS
             value: http://etcd:2379
           - name: KUMULUZEE_DISCOVERY_ETCD_HOSTS

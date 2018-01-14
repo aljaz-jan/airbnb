@@ -1,6 +1,6 @@
-package airbnb.controller;
+package si.faks.airbnb.controller;
 
-import airbnb.model.Comment;
+import si.faks.airbnb.model.Comment;
 import com.kumuluz.ee.logs.cdi.Log;
 
 import javax.enterprise.context.RequestScoped;
