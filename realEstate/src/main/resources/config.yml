@@ -41,3 +41,6 @@ kumuluzee:
         url-pattern: /realEstate
   logs:
     config-file-location: realEstate/src/main/resources/log4j2.xml
+
+  real-estate-config:
+    dynmic: lalalal
