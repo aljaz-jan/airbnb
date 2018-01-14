@@ -29,6 +29,11 @@ public class DistanceController {
 	}
 
 	@GET
+	public String dummy(){
+		return "dummy";
+	}
+
+	@GET
 	@Path("/{fromLocation}")
 	public List<RealEstateDistance> getDistanceToAll(@PathParam("fromLocation") String fromLocation) {
 		return realEstateDistanceList.stream()
